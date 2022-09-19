@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d65e77f7-d203-4704-940e-0aa86a668562" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/AdminGa.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/AdminGa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/queriesGA.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/queriesGA.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,7 @@
       <workItem from="1663443400250" duration="80000" />
       <workItem from="1663443487814" duration="7389000" />
       <workItem from="1663525795301" duration="9734000" />
-      <workItem from="1663582108504" duration="2459000" />
+      <workItem from="1663582108504" duration="4005000" />
     </task>
     <servers />
   </component>
