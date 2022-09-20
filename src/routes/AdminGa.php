@@ -122,10 +122,11 @@ $app->get(
 
             $stm_admin = $db_access->prepare($sql);
             $stm_admin->execute();
-            $canAccess = $stm_admin->fetch();
-            if ($canAccess['isAdmin'] == 1) {
+            $canAccess = $stm_admin->fetch(PDO::FETCH_OBJ);
+//            if ($canAccess['isAdmin'] == 1) {
+            if ($canAccess and $canAccess->isAdmin== 1) {
                 $sql="
-                    SELECT TID_TalentID, CONCAT(TIN_Name, TIN_Last_Name) AS Name, TID_Email, TID_IsGAADMIN
+                    SELECT TID_TalentID, CONCAT(TIN_Name,' ', TIN_Last_Name) AS Name, TID_Email, TID_IsGAADMIN, TIN_Photo
                     FROM TalentID AS tid
                     LEFT JOIN TalentId_Info AS tii
                     ON tii.TIN_TID_ID = tid.TID_TalentID
@@ -135,7 +136,6 @@ $app->get(
                 $db = $db->connectBD();
                 $stm = $db->prepare($sql);
                 $stm->execute([]);
-                echo $stm->execute([]);
                 $isAdmin = $stm->fetchAll(PDO::FETCH_OBJ);
                 $response->getBody()->write(json_encode($isAdmin));
             } else {
@@ -169,7 +169,6 @@ $app->post(
             $response->getBody()->write(json_encode(array('error' => 'No se ha enviado el dato correctamente')));
             return $response->withStatus(400);
         } elseif ($Org_Leader_ID) {
-            // validate if the id that comes from the client is an admin
             $sql = "
             SELECT EXISTS (SELECT TID_TalentID, TID_IsGAADMIN FROM TalentID WHERE TID_IsGAADMIN=1 AND TID_TalentID='$Org_Leader_ID' ) AS isAdmin
             ";
